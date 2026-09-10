@@ -1,0 +1,25 @@
+;
+
+    recognition.onstart = function() {
+        console.log("آواز سننا شروع کر رہا ہوں...");
+    };
+
+    recognition.onresult = function(event) {
+        const transcript = event.results[0][0].transcript;
+        console.log("آپ نے کہا: " + transcript);
+        
+        // یہاں آپ اپنے احکامات شامل کر سکتے ہیں
+        if (transcript.includes("موسم")) {
+            console.log("موسم کی تفصیلات دکھائی جا رہی ہیں");
+        }
+    };
+
+    recognition.onerror = function(event) {
+        console.error("کوئی خرابی پیش آئی: " + event.error);
+    };
+
+    // سننے کا عمل شروع کرنے کے لیے recognition.start() کال کریں
+    recognition.start();
+} else {
+    console.log("معذرت، آپ کا براؤزر وائس ریکگنیشن سپورٹ نہیں کرتا۔");
+}recognition.onstartrecognition.onerrorrecognition.onresult
